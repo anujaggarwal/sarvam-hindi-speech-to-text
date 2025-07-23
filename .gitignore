@@ -47,6 +47,11 @@ chunks/
 temp/
 *.tmp
 
+# Web App Temporary Files
+temp_uploads/
+instance/
+*.db
+
 # IDE
 .vscode/
 .idea/

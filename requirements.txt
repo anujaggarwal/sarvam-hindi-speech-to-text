@@ -1,0 +1,6 @@
+openai-whisper
+tqdm==4.66.4
+requests
+pydub
+ffmpeg-python
+sarvamai

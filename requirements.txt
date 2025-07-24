@@ -8,6 +8,7 @@ sarvamai
 # Web Application Dependencies
 Flask==3.0.0
 Werkzeug==3.0.1
+streamlit>=1.28.0
 
 # PDF generation with Hindi support
 weasyprint==62.3

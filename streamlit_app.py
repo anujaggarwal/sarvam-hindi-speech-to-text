@@ -19,7 +19,7 @@ from sarvam_batch_stt import SarvamBatchSTT
 
 # Page configuration
 st.set_page_config(
-    page_title="Sarvam.ai Speech-to-Text",
+    page_title="Sarvam.ai Speech-to-Text | Krishyam Techlabs",
     page_icon="🎤",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -128,6 +128,7 @@ def main():
     <div class="main-header">
         <h1>🎤 Sarvam.ai Speech-to-Text</h1>
         <p>Convert Hindi audio to text with advanced speaker diarization</p>
+        <p style="font-size: 14px; margin-top: 10px; opacity: 0.9;">Powered by <strong>Krishyam Techlabs</strong></p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -149,6 +150,15 @@ def main():
             return
         
         st.success("✅ API key configured")
+        
+        # Company info
+        st.markdown("---")
+        st.markdown("""
+        <div style="text-align: center; padding: 1rem; background: #f0f2f6; border-radius: 10px; margin: 1rem 0;">
+            <h4 style="color: #4CAF50; margin-bottom: 0.5rem;">🏢 Krishyam Techlabs</h4>
+            <p style="font-size: 12px; color: #666; margin: 0;">Advanced AI Solutions</p>
+        </div>
+        """, unsafe_allow_html=True)
         
         # Processing mode selection
         st.subheader("🔧 Processing Mode")
@@ -492,8 +502,9 @@ def show_footer():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #666; padding: 2rem;">
-        <p>🚀 Powered by <strong>Sarvam.ai</strong> | Built with ❤️ using Streamlit</p>
+        <p>🚀 Developed by <strong>Krishyam Techlabs</strong> | Powered by <strong>Sarvam.ai</strong> | Built with ❤️ using Streamlit</p>
         <p>For support or feedback, visit our <a href="https://github.com/anujaggarwal/sarvam-hindi-speech-to-text" target="_blank">GitHub repository</a></p>
+        <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">© 2025 Krishyam Techlabs. All rights reserved.</p>
     </div>
     """, unsafe_allow_html=True)
 

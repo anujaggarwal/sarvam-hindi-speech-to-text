@@ -30,13 +30,8 @@ venv/
 env/
 ENV/
 
-# Large Audio Files (exclude main recording but keep test files)
-ScreenRecordingAudio.mp3
-# Keep smaller test files for demonstration:
-# trimmed_audio*.mp3 files will be included
-# *.wav
-# *.m4a
-# *.flac
+# Audio Sample Files (all test/demo audio files)
+SAMPLES/
 
 # Transcript Files (may contain sensitive content)
 *transcript*.txt
@@ -46,6 +41,13 @@ ScreenRecordingAudio.mp3
 chunks/
 temp/
 *.tmp
+
+# Batch Processing Output Folders
+batch_output_*/
+batch_chunks_*/
+
+# Weird files from dependencies
+=*
 
 # Web App Temporary Files
 temp_uploads/

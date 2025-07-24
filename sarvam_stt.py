@@ -31,7 +31,14 @@ class SarvamSTT:
         output_pattern = os.path.join(output_dir, f"{base_name}_%03d{ext}")
         
         # Choose codec based on file type
-        codec = "pcm_s16le" if ext == ".wav" else "libmp3lame"
+        if ext == ".wav":
+            codec = "pcm_s16le"
+        elif ext == ".aac":
+            codec = "aac"
+        elif ext == ".m4a":
+            codec = "aac"
+        else:
+            codec = "libmp3lame"
         
         # FFmpeg command to split audio
         command = [

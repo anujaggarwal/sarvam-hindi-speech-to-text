@@ -57,7 +57,14 @@ class SarvamBatchSTT:
         output_pattern = chunks_dir / f"{base_name}_chunk_%02d{ext}"
         
         # Choose codec based on file type
-        codec = "pcm_s16le" if ext == ".wav" else "libmp3lame"
+        if ext == ".wav":
+            codec = "pcm_s16le"
+        elif ext == ".aac":
+            codec = "aac"
+        elif ext == ".m4a":
+            codec = "aac"
+        else:
+            codec = "libmp3lame"
         
         cmd = [
             "ffmpeg", "-i", audio_path,

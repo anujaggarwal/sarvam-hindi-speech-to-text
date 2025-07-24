@@ -208,8 +208,8 @@ def main():
         # File uploader
         uploaded_file = st.file_uploader(
             "Choose an audio file",
-            type=['mp3', 'wav', 'm4a', 'flac'],
-            help="Supported formats: MP3, WAV, M4A, FLAC"
+            type=['mp3', 'wav', 'm4a', 'flac', 'aac'],
+            help="Supported formats: MP3, WAV, M4A, FLAC, AAC"
         )
         
         if uploaded_file is not None:

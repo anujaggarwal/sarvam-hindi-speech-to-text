@@ -1,13 +1,15 @@
-# Sarvam.ai Speech-to-Text Converter
+# Sarvam.ai Speech-to-Text Converter with Dual Output System
 
-Convert Hindi MP3 conference call recordings to clean, readable text using Sarvam AI's Saarika model.
+Convert Hindi/English mixed audio files to text using Sarvam AI's Saarika model with automatic dual output generation.
 
-## ✨ Latest Updates
+## 🎉 Major Updates - Dual Output System
 
-- ✅ **Clean Text Output**: Transcripts now save as clean, readable text without API metadata
-- ✅ **Automatic API Key Loading**: Reads API key from `.env` file automatically
-- ✅ **Improved Text Formatting**: Proper newline handling for better readability
-- ✅ **Transcript Cleanup Utility**: Added tool to clean existing transcript files
+- ✅ **NEW: Dual Output System**: Creates both Hindi (Devanagari) and Roman script versions
+- ✅ **M4A File Support**: Fixed M4A processing with automatic AAC conversion
+- ✅ **Line Break Preservation**: Maintains original formatting in both versions
+- ✅ **Clean Text Output**: No more raw API responses in output files
+- ✅ **Smart Transliteration**: Hindi → Roman script, English unchanged
+- ✅ **Robust Error Handling**: Comprehensive error handling and debugging
 
 ## Setup
 
@@ -45,9 +47,11 @@ python sarvam_stt.py ScreenRecordingAudio.mp3
 
 The script will:
 - Automatically detect if audio is longer than 30 seconds
-- Split long audio into chunks if needed
+- Split long audio into chunks if needed (M4A → AAC conversion)
 - Ask you to select language (Hindi by default)
-- Save transcript to a text file
+- Create TWO output files:
+  - `filename_hindi.txt` - Original with Devanagari script
+  - `filename_roman.txt` - Hindi transliterated to Roman script
 
 ### Method 2: Interactive Mode
 ```bash
@@ -88,6 +92,15 @@ This extracts only the clean transcript text and saves it to a new file.
 
 ## Features
 
+### 🎆 **NEW: Dual Output System**
+- ✅ **Two File Formats**: Automatically creates both Hindi and Roman script versions
+- ✅ **Smart Transliteration**: Hindi → Roman script using Sarvam.ai API
+- ✅ **English Preservation**: English text remains unchanged in Roman version
+- ✅ **Line Break Preservation**: Maintains exact formatting in both versions
+- ✅ **Chunked Processing**: Handles long texts by splitting into API-compatible chunks
+
+### 🛠️ **Core Features**
+- ✅ **M4A File Support**: Fixed M4A processing with automatic AAC conversion
 - ✅ **Smart Audio Processing**: Handles both short (<30s) and long audio files
 - ✅ **Automatic Chunking**: Splits long audio into optimal chunks for processing
 - ✅ **Clean Text Output**: Saves readable transcripts without API metadata
@@ -95,8 +108,7 @@ This extracts only the clean transcript text and saves it to a new file.
 - ✅ **Automatic API Key Loading**: Reads from `.env` file automatically
 - ✅ **Progress Tracking**: Shows real-time progress for long transcriptions
 - ✅ **Automatic Cleanup**: Removes temporary files after processing
-- ✅ **Error Handling**: Robust error handling with helpful messages
-- ✅ **Transcript Utilities**: Tools to clean and format existing transcripts
+- ✅ **Robust Error Handling**: Comprehensive debugging and fallback mechanisms
 
 ## File Structure
 
@@ -152,40 +164,82 @@ This extracts only the clean transcript text and saves it to a new file.
 === Sarvam.ai Speech-to-Text Converter ===
 
 Starting transcription...
-Input: ScreenRecordingAudio.mp3
-Output: ScreenRecordingAudio_transcript.txt
+Input: Anshuman-30Jul2025.m4a
+Output: Anshuman-30Jul2025_transcript
 --------------------------------------------------
-Audio duration: 125.43 seconds
+Audio duration: 1247.83 seconds
 Audio is longer than 30 seconds, splitting into chunks...
-Generated 5 audio chunks
-Transcribing 5 chunks...
-Processing chunk 1/5: ScreenRecordingAudio_000.mp3
+Converting M4A chunks to AAC format for API compatibility...
+Generated 43 audio chunks
+Transcribing 43 chunks...
+Processing chunk 1/43: Anshuman-30Jul2025_000.aac
 ✓ Chunk 1 transcribed successfully
-Processing chunk 2/5: ScreenRecordingAudio_001.mp3
+Processing chunk 2/43: Anshuman-30Jul2025_001.aac
 ✓ Chunk 2 transcribed successfully
 ...
 Cleaning up temporary chunks...
 Transcription completed successfully!
-Transcript saved to: ScreenRecordingAudio_transcript.txt
+✓ Hindi transcript saved to: Anshuman-30Jul2025_transcript_hindi.txt
+
+Creating Roman script version...
+🔄 Text too long (15,847 chars), splitting into chunks...
+Split into 18 chunks
+Processing chunk 1/18 (885 chars)...
+Processing chunk 2/18 (892 chars)...
+...
+✓ All chunks processed successfully
+✓ Roman script transcript saved to: Anshuman-30Jul2025_transcript_roman.txt
+
+🎉 Both versions created successfully!
+   Hindi version: Anshuman-30Jul2025_transcript_hindi.txt
+   Roman version: Anshuman-30Jul2025_transcript_roman.txt
 
 ==================================================
-TRANSCRIPTION RESULT:
+TRANSCRIPTION RESULT (Hindi Version):
 ==================================================
-राइट।
-तो वो डेली बेस पे नहीं है वो वीक में एक या दो ट्रांजैक्शन ऐसी होती है...
+game of chance versus game of skill.
+Start with that.
+That's the heading.
+गुड बी चांस बीइंग द नेचर ऑफ कार्ड्स डेल्ट।
 ==================================================
 ```
 
-### Clean Text File Output (`ScreenRecordingAudio_transcript.txt`):
+### Dual Output Files:
+
+#### Hindi Version (`filename_hindi.txt`):
 ```
-राइट।
-तो वो डेली बेस पे नहीं है वो वीक में एक या दो ट्रांजैक्षन ऐसी होती है जो रेगुलर बेस पे है तो वो मेरा 20 से 25 में कवर हम कर सकते हैं जो डेली में ट्रांजैक्षन है।
-राइट।
-और एक्सेप्शनली ऐसा कोई ऑप्शन होता है कि एक्सेप्शनली हम वीक में एक या दो ट्रक हमारे जो 40 प्लस चलते हैं उसको कवर कर सकें।
+game of chance versus game of skill.
+Start with that.
+That's the heading.
+One.
+Game of chance is one how will you define it?
+Is where no skill is involved and depends on the outcome.
+often uncertain.
+Something like that.
+While a game of skill
+गुड बी चांस बीइंग द नेचर ऑफ कार्ड्स डेल्ट।
+रिफर टू लक्ष्मण सेश कोट दैट।
 ```
 
-**Key Improvements:**
-- ✅ No API metadata or response formatting
-- ✅ Clean, readable Hindi text
-- ✅ Proper line breaks and formatting
-- ✅ Ready for further processing or reading
+#### Roman Version (`filename_roman.txt`):
+```
+Game of chance versus game of skill.
+Start with that.
+That's the heading.
+One.
+Game of chance is one how will you define it?
+Is where no skill is involved and depends on the outcome.
+Often uncertain.
+Something like that.
+While a game of skill
+Good be chance being the nature of cards dealt.
+Refer to Laxman Sesh Coat that.
+```
+
+### 🎆 **Key Improvements:**
+- ✅ **Dual Output**: Both Devanagari and Roman script versions
+- ✅ **M4A Support**: Automatic conversion to AAC format
+- ✅ **Line Preservation**: Exact formatting maintained in both files
+- ✅ **Smart Transliteration**: Hindi → Roman, English unchanged
+- ✅ **No API Metadata**: Clean, readable text output
+- ✅ **Production Ready**: Robust error handling and debugging
